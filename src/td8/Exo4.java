@@ -6,24 +6,14 @@ import java.util.LinkedList;
 import java.util.List;
 
 public class Exo4 <T>{
-
+	
 	public static <T> List<T> fusion(List<?> l1, List<?> l2) throws ErrExo4{
 		if(l1.size() != l2.size()) throw new ErrExo4("Les listes doivent etre de la meme taille");
-		if(l1 == null) return (List<T>) l2;
-		if(l2 == null) return (List<T>) l1;
 		ArrayList<Object> l3 = new ArrayList<Object>();
-		int i, j, a=0;
-		for(i=0, j=0; i<l1.size() || j<l2.size();) {
-			if(a==0) {
-				l3.add(l1.get(i));
-				i++;
-				a = 1;
-			}
-			else if(a==1) {
-				l3.add(l2.get(j));
-				j++;
-				a = 0;
-			}
+		int i;
+		for(i=0; i<l1.size(); i++) {
+			l3.add(l1.get(i));
+			l3.add(l2.get(i));
 		}
 		return (List<T>) l3;
 	}
