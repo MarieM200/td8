@@ -5,7 +5,7 @@ import java.util.List;
 
 public class Exo2{
 	
-	private static void print(List<? extends Object> list) {
+	private static void print(List<?> list) {
 		for(Object o:list)
 			System.out.println(o);
 	}
