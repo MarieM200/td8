@@ -24,15 +24,15 @@ public class Exo5 <E>{
 	
 	//correction : convertir en tableau car la complexite sera O(n)
 	
-	public static <E> void melange2(List<E> l) {
+	public static <E> List<E> melange2(List<E> l) {
 		E[] array =(E[]) l.toArray();
 		E[] e = array;
 		Random r = new Random();
-		for(int i = l.size(); i>0; i--) {
+		for(int i = l.size()-1; i>0; i--) {
 			int j = r.nextInt(i);
 			echange2(e, i, j);
-			l = Arrays.asList(e);
 		}
+		return l = Arrays.asList(e);
 	}
 	
 	public static <E> void echange2(E[] l, int i, int j) {
@@ -43,16 +43,21 @@ public class Exo5 <E>{
 	
 	public static void main(String[] args) {
 		// TODO Auto-generated method stub
-		List<String> l = Arrays.asList("foo", "toto", "test");
+		List<String> l3 = Arrays.asList("foo", "toto", "test");
 		List<Integer> l1 = Arrays.asList(1, 2, 3, 4, 5, 6, 7, 8, 9, 10);
-		echange(l, 0, 2);
+		echange(l3, 0, 2);
 		echange(l1, 2, 7);
-		System.out.println(l);
+		System.out.println(l3);
 		System.out.println(l1);
-		melange(l);
+		melange(l3);
 		melange(l1);
-		System.out.println(l);
+		System.out.println(l3);
 		System.out.println(l1);
+		
+		Object[] l2 = l1.toArray();
+		List<Integer> l4 = melange2(l1);
+		System.out.println(l4);
+		echange2(l2, 0, 1);
 	}
 
 }
